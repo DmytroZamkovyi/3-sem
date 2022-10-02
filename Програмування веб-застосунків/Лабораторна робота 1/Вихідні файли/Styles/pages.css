@@ -1,0 +1,113 @@
+html, body, head, div, p, a, ol, header{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+body {
+    background-color: wheat;
+}
+
+
+header, footer{
+    background-color: rgb(16, 15, 27);
+    height: 100px;
+    width: 100%;
+}
+
+
+#X {
+    color: whitesmoke;
+    padding: 31px;
+    margin: 0;
+    text-align: right;
+}
+
+
+#Y {
+    color: whitesmoke;
+    padding: 31px;
+    margin: 0;
+}
+
+
+main {
+    height: 100%;
+    width: 99vw;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#block-2-3-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#block-4-5 {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#block-2-3 {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#block-2 {
+    width: 24vw;
+    margin: 0.5vw;
+}
+
+
+#block-3 {
+    width: 24vw;
+    margin: 0.5vw;
+}
+
+
+#block-4 {
+    width: 24vw;
+    margin: 0.5vw;
+}
+
+
+#block-5 {
+    background-color: cadetblue;
+    width: 24.16vw;
+}
+
+
+#block-6 {
+    width: 49vw;
+    margin: 0.5vw;
+}
+
+
+#nav-menu {
+    text-align: center;
+}
+
+
+li {
+    margin: 1vw;
+}
+
+
+#you-here {
+    font-size: 20px;
+    color: black
+}
+
+#pages{
+    color: black;
+    text-decoration: none;
+    border-bottom: thick double #082835;
+}
