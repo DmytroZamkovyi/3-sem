@@ -4,16 +4,16 @@ const SPACE: u8 = b' ';
 const BUF_LEN: usize = 32;
 
 enum ReadNum {
-    Error,
-    EndFile,
-    EndLine(i32),
+    Error,        //помилка при читанны файлу
+    EndFile,      //кінець файлу
+    EndLine(i32), //кінець рядка
     Number(i32),
 }
 
 fn main() {
-    let type_0 = "type_0.txt";
-    let type_1 = "type_1.txt";
-    let type_2 = "type_2.txt";
+    let type_0 = "type_0.txt"; //вхідний файл
+    let type_1 = "type_1.txt"; //перший допоміжний (А)
+    let type_2 = "type_2.txt"; //другий допоміжний (В)
 
     let mut buffer: [u8; BUF_LEN] = [0; BUF_LEN];
     loop {
@@ -47,17 +47,17 @@ fn join(buffer: &mut [u8], type_0: &str, type_1: &str, type_2: &str) -> Result<b
         Ok(f) => f,
         Err(e) => return Err(format!("При відкритті файлу <{}> виникла помилка: {}", type_2, e.to_string())),
     };
-    let mut e1 = false;
-    let mut e2 = false;
-    let mut r1 = true;
-    let mut r2 = true;
-    let mut num1 = i32::MIN;
-    let mut num2 = i32::MIN;
-    let mut l1 = false;
-    let mut l2 = false;
-    let mut seek = false;
-    let mut end1 = true;
-    let mut end2 = true;
+    let mut e1 = false;         //файл 1 оброблено
+    let mut e2 = false;         //файл 2 оброблено
+    let mut r1 = true;          //прочитано з файлу 1
+    let mut r2 = true;          //прочитано з файлу 2
+    let mut num1 = i32::MIN;    //число з 1-го файлу
+    let mut num2 = i32::MIN;    //число з 2-го файлу
+    let mut l1 = false;         //лінія 1
+    let mut l2 = false;         //лінія 2
+    let mut seek = false;       //не записувати пустий (перший) рядок
+    let mut end1 = true;        //кінець файлу 1
+    let mut end2 = true;        //кінець файлу 2
 
     loop {
         if !e1 && r1 {
@@ -158,12 +158,12 @@ fn split(buffer: &mut [u8], type_0: &str, type_1: &str, type_2: &str) -> Result<
         Ok(f) => f,
         Err(e) => return Err(format!("При відкритті файлу <{}> виникла помилка: {}", type_2, e.to_string())),
     };
-    let mut last: i32 = i32::MIN;
-    let mut first = true;
-    let mut nl_1 = false;
-    let mut nl_2 = false;
-    let mut seek_1 = false;
-    let mut seek_2 = false;
+    let mut last: i32 = i32::MIN;   //останнє число
+    let mut first = true;           //зміна файлу запису з В на С і навпаки
+    let mut nl_1 = false;           //нова серія в файлі 1
+    let mut nl_2 = false;           //нова серія в файлі 2
+    let mut seek_1 = false;         //не записувати пустий (перший) рядок в файлі 1
+    let mut seek_2 = false;         //не записувати пустий (перший) рядок в файлі 2
     loop {
         let i = match read_num_br(&mut file_0, buffer) {
             Some(i) => i,
