@@ -4,9 +4,9 @@ const SPACE: u8 = b' ';
 const BUF_LEN: usize = 32;
 
 enum ReadNum {
-    Error,        //помилка при читанны файлу
-    EndFile,      //кінець файлу
-    EndLine(i32), //кінець рядка
+    Error,
+    EndFile,
+    EndLine(i32),
     Number(i32),
 }
 
