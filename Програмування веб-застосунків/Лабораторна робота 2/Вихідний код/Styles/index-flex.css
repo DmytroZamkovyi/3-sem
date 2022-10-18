@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+header, footer {
+    display: flex;
+    flex-direction: row;
+    flex: 1 100px;
+}
+
+
+#div-text-block-1, #div-text-block-7 {
+    display: flex;
+    flex: 1 1 75%;
+}
+
+
+#div-h1-block-1, #div-h1-block-7 {
+    display: flex;
+    flex: 1 1 25%;
+}
+
+
+#X, #Y{
+    width: 100%;
+}
+
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#block-2-3-6 {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+}
+
+
+#block-2-3 {
+    display: flex;
+    flex-direction: row;
+    flex-direction: 1 1 auto;
+    height: 100%;
+}
+
+#block-6 {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+
+#block-2, #block-3, #block-4 {
+    flex: 1 1 50%;
+}
+
+
+#block-5 {
+    flex: 0 0 50%;
+    width: 100%;
+}
+
+
+#block-4-5 {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 50%;
+}
