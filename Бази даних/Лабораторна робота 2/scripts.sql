@@ -1,10 +1,10 @@
+-- !Створення таблиць
 CREATE TABLE object_insurance -- Об'єкти страхування
 (
     id SERIAL,
-    object_name VARCHAR(20) NOT NULL,
-    object_type VARCHAR(20) NOT NULL,
+    object_name VARCHAR(40) NOT NULL,
+    object_type VARCHAR(40) NOT NULL,
     risks VARCHAR(255)
-    -- PRIMARY KEY (id)
 );
 
 CREATE TABLE insurer_address -- Адреси страхувальників
@@ -15,7 +15,6 @@ CREATE TABLE insurer_address -- Адреси страхувальників
     street VARCHAR(40) NOT NULL,
     house SMALLINT NOT NULL,
     office SMALLINT
-    -- PRIMARY KEY (id)
 );
 
 CREATE TABLE employee_address -- Адреси працівників
@@ -26,7 +25,6 @@ CREATE TABLE employee_address -- Адреси працівників
     street VARCHAR(40) NOT NULL,
     house SMALLINT NOT NULL,
     office SMALLINT
-    -- PRIMARY KEY (id)
 );
 
 CREATE TABLE branch_address -- Адреси філій
@@ -37,45 +35,35 @@ CREATE TABLE branch_address -- Адреси філій
     street VARCHAR(40) NOT NULL,
     house SMALLINT NOT NULL,
     office SMALLINT
-    -- PRIMARY KEY (id)
 );
 
 CREATE TABLE branch -- Філія
 (
     id SERIAL,
     id_address INTEGER NOT NULL,
-    phone_number BIGINT NOT NULL UNIQUE,
-    CHECK(phone_number >100000000000 AND phone_number <999999999999)
-    -- FOREIGN KEY (id_address) REFERENCES branch_address (id),
-    -- PRIMARY KEY (id)
+    phone_number BIGINT NOT NULL UNIQUE
 );
 
 CREATE TABLE insurer -- Страхувальник
 (
     id SERIAL,
-    first_name VARCHAR(20) NOT NULL,
-    lasr_name VARCHAR(20) NOT NULL,
-    fathers_name VARCHAR(20),
+    first_name VARCHAR(40) NOT NULL,
+    lasr_name VARCHAR(40) NOT NULL,
+    fathers_name VARCHAR(40),
     id_address INTEGER NOT NULL,
-    phone_number BIGINT NOT NULL UNIQUE,
-    CHECK(phone_number >100000000000 AND phone_number <999999999999)
-    -- FOREIGN KEY (id_address) REFERENCES insurer_address(id),
-    -- PRIMARY KEY (id)
+    phone_number BIGINT NOT NULL UNIQUE
 );
 
 CREATE TABLE employee -- Страховий агент
 (
     id SERIAL,
-    first_name VARCHAR(20) NOT NULL,
-    lasr_name VARCHAR(20) NOT NULL,
-    fathers_name VARCHAR(20),
+    first_name VARCHAR(40) NOT NULL,
+    lasr_name VARCHAR(40) NOT NULL,
+    fathers_name VARCHAR(40),
     id_address INTEGER NOT NULL,
     phone_number INTEGER NOT NULL,
     tariff REAL NOT NULL,
     id_branch INTEGER NOT NULL
-    -- FOREIGN KEY (id_address) REFERENCES employee_address(id),
-    -- FOREIGN KEY (id_branch) REFERENCES branch(id),
-    -- PRIMARY KEY (id)
 );
 
 CREATE TABLE treatyxxx -- Договір
@@ -85,10 +73,7 @@ CREATE TABLE treatyxxx -- Договір
     id_insurer INTEGER NOT NULL,
     date_conclusion DATE NOT NULL,
     id_object INTEGER NOT NULL,
-    type_insurancexxx VARCHAR(20)
-    -- FOREIGN KEY (id_employee) REFERENCES employee(id),
-    -- FOREIGN KEY (id_object) REFERENCES object_insurance(id),
-    -- PRIMARY KEY (id)
+    type_insurancexxx VARCHAR(40)
 );
 
 CREATE TABLE finances -- Фінанси
@@ -97,7 +82,7 @@ CREATE TABLE finances -- Фінанси
     year SMALLINT NOT NULL,
     month VARCHAR(10),
     salary REAL NOT NULL,
-    xxx INTEGER
+    xxx INTEGER -- Непотрібний стовпець
 );
 
 CREATE TABLE xxx -- Заздалегіть непотрібна таблиця
@@ -110,6 +95,7 @@ CREATE TABLE xxx -- Заздалегіть непотрібна таблиця
 
 
 
+-- !Редагування таблиць
 ALTER TABLE branch -- Додав стовбець
 ADD branch_name VARCHAR(250);
 
@@ -117,11 +103,20 @@ ALTER TABLE branch -- Змінив тип стовця
 ALTER branch_name TYPE VARCHAR(40);
 
 ALTER TABLE branch -- Додав обмаження стовпця
-ALTER COLUMN branch_name 
+ALTER COLUMN branch_name
 SET NOT NULL;
 
 ALTER TABLE employee -- Додав перевірку
-ADD CHECK(phone_number >100000000000 AND phone_number <999999999999);
+ADD CONSTRAINT check_phone_number CHECK(phone_number BETWEEN 100000000000 AND 999999999999);
+
+ALTER TABLE insurer
+ADD CONSTRAINT check_phone_number CHECK(phone_number BETWEEN 100000000000 AND 999999999999);
+
+ALTER TABLE branch
+ADD CONSTRAINT check_phone_number CHECK(phone_number BETWEEN 100000000000 AND 999999999999);
+
+ALTER TABLE xxx -- Зайва перевірка
+ADD CONSTRAINT check_xxx CHECK(xxx1 BETWEEN 100000000000 AND 999999999999);
 
 ALTER TABLE treatyxxx -- Прейменував колонку
 RENAME COLUMN type_insurancexxx TO type_insurance;
@@ -131,17 +126,22 @@ RENAME TO treaty;
 
 
 
+-- !Видалення таблиць
 ALTER TABLE finances -- Видалив стовбець
 DROP COLUMN xxx;
 
-ALTER TABLE branch -- Видалив обмеження стовпця
-ALTER COLUMN branch_name 
+ALTER TABLE xxx -- Видалив обмеження стовпця
+DROP CONSTRAINT check_xxx;
+
+ALTER TABLE branch
+ALTER COLUMN branch_name
 DROP NOT NULL;
 
 DROP TABLE xxx; -- Видалення таблиці
 
 
 
+-- !Додавання ключів
 ALTER TABLE object_insurance
 ADD PRIMARY KEY (id);
 
@@ -189,4 +189,31 @@ ADD FOREIGN KEY (id_insurer) REFERENCES insurer(id);
 
 
 
+-- !Створення типів користувачів
+CREATE ROLE programmer CREATEDB CREATEROLE;
 
+CREATE ROLE director;
+
+CREATE ROLE employee CREATEDB;
+
+
+
+-- !Створення користувачів
+CREATE ROLE programmer_sam PASSWORD 'pilot21' LOGIN;
+
+CREATE ROLE director_joe PASSWORD 'awerty656' LOGIN;
+
+CREATE ROLE employee_kate PASSWORD 'kate_pass_12' LOGIN;
+
+
+
+-- !Надань прав ролей користувачам
+GRANT programmer TO programmer_sam;
+
+GRANT director TO director_joe;
+
+GRANT employee TO employee_kate;
+
+
+
+-- !Імпорт даних
