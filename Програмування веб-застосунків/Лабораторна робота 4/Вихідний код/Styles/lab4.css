@@ -1,0 +1,166 @@
+@media screen and (max-width: 1240px) {
+    html, body, head, div, p, a, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    
+    
+    body {
+        background-color: #8ab5c5;
+        display: grid;
+        align-items: center;
+    }
+    
+    
+    .text-blocks {
+        margin: auto;
+        display: grid;
+        width: 24em;
+        margin-top: 3em;
+    }
+    
+    
+    .text-blocks div {
+        padding: 3em;
+        border: 1px solid #ffffff;
+        margin: 0.5em;
+    }
+    
+    
+    .block-1, .block-4 {
+        color: #ffffff;
+    }
+    
+    
+    .block-2, .block-3 {
+        background-color: #ffffff;
+    }
+    
+    
+    .block-2 h2, .block-3 h2 {
+        color: #8ab5c5
+    }
+    
+    
+    .block-2 p, .block-3 p {
+        color: #4c5d64
+    }
+    
+    .img1, .img2 {
+        border: 4px solid #ffffff;
+        width: 90%;
+    }
+    
+    
+    .img2 {
+        position: relative;
+        left: 131px;
+        bottom: 80px;
+        left: 7%;
+        bottom: 20%;
+    }
+    
+    
+    .img-blocks {
+        width: 23em;
+        margin: auto;
+        display: grid;
+    }
+}
+
+
+@media screen and (min-width: 1241px) {
+    html, body, head, div, p, a, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    
+    
+    body {
+        background-color: #8ab5c5;
+        display: grid;
+        align-items: center;
+        grid-template-areas:
+        "a b";
+    }
+
+    
+    .text-blocks {
+        margin: auto;
+        display: grid;
+        width: 24em;
+        margin-top: 3em;
+        grid-area: a;
+        align-self: start;
+        grid-template-areas:
+        "a b"
+        "c d";
+    }
+    
+    
+    .text-blocks div {
+        padding: 3em;
+        border: 1px solid #ffffff;
+        margin: 0.5em;
+        width: 12em;
+        height: 19em;
+    }
+    
+    
+    .block-1, .block-4 {
+        color: #ffffff;
+    }
+    
+    
+    .block-2, .block-3 {
+        background-color: #ffffff;
+    }
+    
+    
+    .block-2 h2, .block-3 h2 {
+        color: #8ab5c5
+    }
+    
+    
+    .block-2 p, .block-3 p {
+        color: #4c5d64
+    }
+
+
+    .text-blocks div h2 {
+        margin-top: 40%;
+    }
+
+
+    .img-blocks {
+        display: grid;
+        grid-area: b;
+        margin: auto;
+        width: 48%;
+        position: relative;
+        top: 6%;
+        right: 20%;
+    }
+
+
+    .img1, .img2 {
+        border: 4px solid #ffffff;
+        width: 107%;
+    }
+    
+    
+    .img2 {
+        position: relative;
+        left: 30%;
+        bottom: 20%;
+    }
+}
+
