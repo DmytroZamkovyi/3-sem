@@ -18,3 +18,10 @@ SELECT ROW_NUMBER() over(ORDER BY(employee."id")), employee.first_name, employee
 
 SELECT employee."id", employee.first_name, employee.lasr_name, employee.tariff FROM employee ORDER BY employee.first_name, employee.lasr_name;
 
+CREATE OR REPLACE VIEW viewA AS SELECT treaty.id, employee.first_name, treaty.type_insurance FROM employee JOIN treaty USING(id) GROUP BY treaty.id, employee.first_name, treaty.type_insurance ORDER BY treaty.id; SELECT * FROM viewA;
+
+CREATE OR REPLACE VIEW viewB AS SELECT viewA.id, viewA.first_name, employee.tariff, viewA.type_insurance FROM employee JOIN viewA USING(id) GROUP BY viewA.id, viewA.first_name, employee.tariff, viewA.type_insurance ORDER BY viewA.id; SELECT * FROM viewB;
+
+--!ALTER VIEW viewB AS SELECT viewA.id, viewA.first_name, employee.tariff, employee.phone_number, viewA.type_insurance FROM employee JOIN viewA USING(id) GROUP BY viewA.id, viewA.first_name, employee.tariff, employee.phone_number, viewA.type_insurance ORDER BY viewA.id; SELECT * FROM viewB;
+
+select pg_get_viewdef('viewA', true); select pg_get_viewdef('viewB', true);
