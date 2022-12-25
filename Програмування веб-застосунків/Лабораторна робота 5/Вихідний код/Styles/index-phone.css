@@ -1,0 +1,330 @@
+@media screen and (max-width: 1200px) {
+    html, body, head, div, p, a, ol, header, footer{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    
+    div, main {
+        display: flex;
+        flex-flow: column;
+    }
+    
+    
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+    
+    
+    header, footer {
+        background-color: rgb(198, 217, 241);
+        display: flex;
+        flex-flow: column;
+    }
+    
+    
+    #block-2, #block-4 {
+        background-color: rgb(234, 241, 221);
+    }
+    
+    
+    #block-5, #block-6 {
+        background-color: rgb(253, 233, 217);
+    }
+    
+    
+    #block-3 {
+        background-color: rgb(222, 201, 239);
+    }
+    
+    
+    #X, #Y {
+        text-align: center;
+        background-color: whitesmoke;
+        border: thick double black;
+        margin: 10px;
+    }
+    
+    
+    #you-here {
+        font-size: 20px;
+        color: black
+    }
+    
+    
+    #pages{
+        color: black;
+        text-decoration: none;
+        border-bottom: thick double black;
+    }
+    
+    
+    li {
+        margin: 1vw;
+    }
+    
+    
+    #nav-menu {
+        text-align: center;
+    }
+
+
+    body, header, footer {
+        flex-flow: column;
+    }
+
+    #div-h1-block-1 {
+        order: 1;
+    }
+    
+    
+    #div-text-block-1 {
+        order: 2;
+    }
+    
+    
+    #text-block-1 {
+        margin: 5px;
+        margin-top: 0px;
+    }
+    
+    
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    #block-4-5 {
+        order: 0;
+    }
+    
+    
+    #block-2-3-6 {
+        order: 1;
+    }
+    
+    
+    #block-5 {
+        order: 0;
+    }
+    
+
+    #block-4 {
+        order: 1;
+    }
+    
+
+    #block-2 {
+        order: 2;
+    }
+    
+
+    #block-3 {
+        order: 0;
+    }
+    
+
+    #block-6 {
+        order: 1;
+    }
+    
+
+    #div-h1-block-7 {
+        order: 1;
+    }
+    
+
+    #div-text-block-7 {
+        order: 0;
+    }
+    
+
+    p {
+        padding: 5px;
+    }
+    
+
+    #you-here {
+        padding: 0;
+    }
+
+
+    h2 {
+        padding: 5px;
+        padding-top: 10px;
+    }
+
+
+    ol {
+        margin: 20px;
+    }
+}
+
+
+@media screen and (min-width: 1201px) {
+    html, body, head, div, p, a, ol, header, footer{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    
+    
+    header, footer {
+        background-color: rgb(198, 217, 241);
+        align-items: center;
+    }
+    
+    
+    #block-2, #block-4 {
+        background-color: rgb(234, 241, 221);
+    }
+    
+    
+    #block-5, #block-6 {
+        background-color: rgb(253, 233, 217);
+    }
+    
+    
+    #block-3 {
+        background-color: rgb(222, 201, 239);
+    }
+    
+    
+    #X, #Y {
+        text-align: center;
+        background-color: whitesmoke;
+        border: thick double black;
+        margin: 10px;
+    }
+    
+    
+    #block-2, #block-3, #block-4, #block-6 {
+        padding: 5px;
+    }
+    
+    
+    #text-block-1, #div-text-block-7 {
+        margin: 10px;
+    }
+    
+    
+    #block-5 {
+        width: 100%;
+    }
+    
+    
+    #block-2, #block-3, #block-4, #block-6 {
+        margin-right: 15px;
+    }
+    
+    
+    #you-here {
+        font-size: 20px;
+        color: black
+    }
+    
+    
+    #pages{
+        color: black;
+        text-decoration: none;
+        border-bottom: thick double black;
+    }
+    
+    
+    li {
+        margin: 1vw;
+    }
+    
+    
+    #nav-menu {
+        text-align: center;
+    }
+
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    header, footer {
+        display: flex;
+        flex-direction: row;
+        flex: 1 100px;
+    }
+    
+    
+    #div-text-block-1, #div-text-block-7 {
+        display: flex;
+        flex: 1 1 75%;
+    }
+    
+    
+    #div-h1-block-1, #div-h1-block-7 {
+        display: flex;
+        flex: 1 1 25%;
+    }
+    
+    
+    #X, #Y{
+        width: 100%;
+    }
+    
+    
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    
+    #block-2-3-6 {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 50%;
+    }
+    
+    
+    #block-2-3 {
+        display: flex;
+        flex-direction: row;
+        flex-direction: 1 1 auto;
+        height: 100%;
+    }
+    
+    #block-6 {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    
+    #block-2, #block-3, #block-4 {
+        flex: 1 1 50%;
+    }
+    
+    
+    #block-5 {
+        flex: 0 0 50%;
+        width: 100%;
+    }
+    
+    
+    #block-4-5 {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 50%;
+    }
+    
+}
+
+
